@@ -1,4 +1,4 @@
-import { addPerson, getById, people } from './db';
+import { addPerson, deletePerson, getById, people } from './db';
 
 const resolvers = {
   Query: {
@@ -10,6 +10,7 @@ const resolvers = {
       _,
       { name, age, gender }: { name: string; age: number; gender: string },
     ) => addPerson(name, age, gender),
+    deletePerson: (_, { id }: { id: number }) => deletePerson(id),
   },
 };
 
